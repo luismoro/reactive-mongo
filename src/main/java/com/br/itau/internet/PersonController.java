@@ -6,10 +6,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
 /**
  * Created by luismoro on 05/12/16.
  */
@@ -30,7 +28,7 @@ public class PersonController {
     }
 
     @RequestMapping(value = {"/persons"}, method = RequestMethod.POST)
-    public Person createPerson(@RequestBody Person person) {
+    public Mono<Person> createPerson(@RequestBody Person person) {
         return personService.save(person);
     }
 
@@ -40,7 +38,7 @@ public class PersonController {
     }
 
     @RequestMapping(value = {"/persons/{id}"}, method = RequestMethod.PUT)
-    public Person updatePersonPut(@PathVariable("id") String id, @RequestBody Person person) {
+    public Mono<Person> updatePersonPut(@PathVariable("id") String id, @RequestBody Person person) {
         return personService.save(id, person);
     }
 }
