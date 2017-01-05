@@ -37,14 +37,11 @@ class PersonService {
         return personRepository.save(p);
     }
 
-    public Mono<Person> justSave(String id, Person person) {
-        //TODO Precisa refatorar para deixar de ser bloqueante
-        System.out.println("Need Refactor!!!");
+    public Flux<Person> justSave(String id, Person person) {
         Mono<Person> mono = personRepository.findOne(id);
 
-       return  mono
+        return  mono
                 .map(p -> new Person(id, person.getName(), person.getAge(), p))
-                .map(personRepository::save)
-                .block();
+                .flatMap(personRepository::save);
     }
 }

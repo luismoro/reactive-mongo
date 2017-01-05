@@ -33,7 +33,7 @@ public class PersonController {
     }
 
     @RequestMapping(value = {"/persons/{id}"}, method = RequestMethod.PATCH)
-    public Mono<Person> updatePersonPath(@PathVariable("id") String id, @RequestBody Person person) {
+    public Flux<Person> updatePersonPath(@PathVariable("id") String id, @RequestBody Person person) {
         return personService.justSave(id, person);
     }
 

@@ -37,14 +37,4 @@ public class MongoConfiguration extends AbstractReactiveMongoConfiguration {
         return database;
     }
 
-//    @Bean
-//    CommandLineRunner initData(PersonRepository personRepository) {
-//        return (p) -> {
-//            personRepository.deleteAll().block();
-//            personRepository.save(new Person("1", "Eric", "Foo")).block();
-//            personRepository.save(new Person("2", "Raymond", "Bar")).block();
-//            personRepository.save(new Person("3", "Paul", "Baz")).block();
-//        };
-//    }
-
 }
