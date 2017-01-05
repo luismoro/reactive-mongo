@@ -1,4 +1,4 @@
-package com.br.itau.internet;
+package com.br;
 
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 

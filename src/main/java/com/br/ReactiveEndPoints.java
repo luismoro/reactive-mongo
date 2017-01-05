@@ -1,4 +1,4 @@
-package com.br.itau.internet;
+package com.br;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

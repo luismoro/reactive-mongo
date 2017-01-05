@@ -1,4 +1,4 @@
-package com.br.itau.internet;
+package com.br;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -38,13 +38,13 @@ class PersonService {
     }
 
     public Mono<Person> justSave(String id, Person person) {
+        //TODO Precisa refatorar para deixar de ser bloqueante
+        System.out.println("Need Refactor!!!");
         Mono<Person> mono = personRepository.findOne(id);
-        Person personUpdated = new Person(id, person.getName(), person.getAge(), mono.block());
-        return personRepository.save(personUpdated);
 
-//        return mono.map(p -> {
-//            Person personUpdated = new Person(id, person.getName(), person.getAge(), p);
-//            return personRepository.save(personUpdated);
-//        });
+       return  mono
+                .map(p -> new Person(id, person.getName(), person.getAge(), p))
+                .map(personRepository::save)
+                .block();
     }
 }

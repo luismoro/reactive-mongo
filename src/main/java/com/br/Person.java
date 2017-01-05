@@ -1,4 +1,4 @@
-package com.br.itau.internet;
+package com.br;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
